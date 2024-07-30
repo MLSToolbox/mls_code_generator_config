@@ -484,12 +484,12 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "model_parameters", "param_type" : "string", "show" : false},
-                { "port_label" : "optimizer", "port_type" : "Optimizer" }
+                {"param_label" : "model_parameters", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
                 { "port_label" : "features", "port_type" : "DataFrame" },
-                { "port_label" : "truth", "port_type" : "DataFrame" }
+                { "port_label" : "truth", "port_type" : "DataFrame" },
+                { "port_label" : "optimizer", "port_type" : "Optimizer" }
             ],
             "outputs" : [
                 { "port_label" : "model", "port_type" : "Model" }
