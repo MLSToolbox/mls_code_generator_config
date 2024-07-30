@@ -81,7 +81,7 @@
             "info" : {
                 "title" : "Selects given Columns"
             },
-            "category" : "Data Transformation",
+            "category" : "Feature Engineering",
             "params" : [
                 {"param_label" : "description", "param_type" : "string", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : true}
