@@ -20,13 +20,9 @@
                 }
             ],
             "dependencies" : {
-                "orchestration": {
-					"origin": "custom",
-					"value": "data_in"
-				}
             },
 			"origin" : {
-				"custom" : "data_in"
+				"custom" : ""
 			}
         },
         {   "node" : "Output",
@@ -47,35 +43,10 @@
             ],
             "outputs" : [],
             "dependencies" : {
-                "orchestration": {
-                    "origin" : "custom",
-                    "value" : "Out"
-                }
             },
             "origin" : {
-                "custom" : "Out"
+                "custom" : ""
             }
-        },
-        {   "node" : "Parameter",
-            "info" : {
-                "title" : "Loads parameter from current step"      
-            },
-            "category" : "Step Managment",
-            "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "type", "param_type" : "option", "optionId": "parameter_type", "show" : true}
-            ],
-            "inputs" : [],
-            "outputs" : [],
-            "dependencies" : {
-				"orchestration": {
-					"origin": "custom",
-					"value": "StepManager"
-				}
-            },
-			"origin" : {
-				"custom" : "StepManager"
-			}
         },
         {   "node" : "Select Columns",
             "info" : {
