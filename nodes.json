@@ -22,11 +22,11 @@
             "dependencies" : {
                 "orchestration": {
 					"origin": "custom",
-					"value": "In"
+					"value": "data_in"
 				}
             },
 			"origin" : {
-				"custom" : "In"
+				"custom" : "data_in"
 			}
         },
         {   "node" : "Output",
@@ -255,7 +255,7 @@
                 {"param_label": "value", "param_type": "string", "show": true}
             ],
             "inputs": [
-                { 	"port_label": "in", "port_type": "DataFrame" }
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
             ],
             "outputs": [
                 {	"port_label": "out", "port_type": "DataFrame" }
@@ -281,7 +281,7 @@
                 {"param_label": "new_value", "param_type": "string", "show": true}
             ],
             "inputs": [
-                { 	"port_label": "in", "port_type": "DataFrame" }
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
             ],
             "outputs": [
                 {	"port_label": "out", "port_type": "DataFrame" }
@@ -306,7 +306,7 @@
                 {"param_label": "value", "param_type": "string", "show": true}
             ],
             "inputs": [
-                { 	"port_label": "in", "port_type": "DataFrame" }
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
             ],
             "outputs": [
                 {	"port_label": "out", "port_type": "DataFrame" }
@@ -331,7 +331,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -357,7 +357,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -383,7 +383,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -409,7 +409,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -435,7 +435,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -461,7 +461,7 @@
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "in", "port_type" : "DataFrame" }
+                { "port_label" : "data_in", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
