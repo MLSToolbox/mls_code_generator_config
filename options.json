@@ -1,5 +1,11 @@
 {
     "options" : {
+        "SVMKernel" : [
+            "rbf",
+            "linear",
+            "poly",
+            "sigmoid"
+        ],
         "join_type" : [
             "inner",
             "outer",
@@ -38,6 +44,10 @@
         "parameter_type" : [
             "Number",
             "String"
+        ],
+        "replace_strategy" : [
+            "average",
+            "mode"
         ]
     },
     "option_of_options":

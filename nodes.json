@@ -7,7 +7,7 @@
             },
             "category" : "Step Managment",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "key", "param_type" : "string", "show" : true},
                 {"param_label" : "Socket type", "param_type" : "option", "optionId": "socket_type", "show" : false}
             ],
@@ -31,7 +31,7 @@
             }, 
             "category" : "Step Managment",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "key", "param_type" : "string", "show" : true},
                 {"param_label" : "Socket type", "param_type" : "option", "optionId": "socket_type", "show" : false}
             ],
@@ -54,8 +54,8 @@
             },
             "category" : "Feature Engineering",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : true}
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
                 {"port_label" : "origin_table", "port_type" : "DataFrame" }
@@ -64,7 +64,7 @@
                 {"port_label" : "resulting_table", "port_type" : "DataFrame" }
             ],
             "dependencies" : {
-				"data_transformation" : {
+				"feature_engineering" : {
 					"origin": "custom",
 					"value": "SelectColumns"
 				}
@@ -73,13 +73,39 @@
 				"custom" : "SelectColumns"
 			}
         },
+        {   "node" : "Label Encoder train",
+            "info" : {
+                "title" : "Encodes labels of a given set of columns"
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
+            ],
+            "inputs" : [
+                {"port_label" : "data", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "out", "port_type" : "DataFrame" },
+                {"port_label" : "encoder", "port_type" : "Encoder" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "LabelEncoderTrainer"
+                }
+            },
+            "origin" : {
+                "custom" : "LabelEncoderTrainer"
+            }
+        },
         {   "node" : "Split train test",
             "info" : {
                 "title" : "Splits data into train and test"
             },
             "category" : "Model Training",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "train_percentage", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
@@ -93,7 +119,7 @@
                 {"port_label" : "truth_test", "port_type" : "DataFrame" }
             ],
             "dependencies" : {
-                "data_transformation": {
+                "model_training": {
 					"origin": "custom",
 					"value": "SplitTrainTest"
 				}
@@ -108,7 +134,7 @@
                 "title" : "Joins two tables"  
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "type", "param_type" : "option", "optionId" : "join_type", "show" : true},
                 {"param_label" : "index", "param_type" : "string", "show" : false},
                 {"param_label" : "dataset_tag", "param_type" : "string", "show" : false}
@@ -124,7 +150,7 @@
                 }
             ],
             "dependencies" : {
-				"data_transformation": {
+				"feature_engineering": {
 					"origin": "custom",
 					"value": "Join"
 				}
@@ -139,8 +165,8 @@
             },
             "category" : "Feature Engineering",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : true}
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
                 {"port_label" : "origin_table", "port_type" : "DataFrame" }
@@ -149,7 +175,7 @@
                 {"port_label" : "resulting_table", "port_type" : "DataFrame" }
             ],
             "dependencies" : {
-				"data_transformation": {
+				"feature_engineering": {
 					"origin": "custom",
 					"value": "DropColumns"
 				}
@@ -164,7 +190,7 @@
                 "title" : "Loads CSV file from disk"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "path", "param_type" : "string", "show" : true}
             ],
             "inputs" : [],
@@ -193,7 +219,7 @@
                 "title" : "Loads JSON file from disk"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "path", "param_type" : "string", "show" : true}
             ],
             "inputs" : [],
@@ -216,40 +242,15 @@
                 "custom" : "JSONLoader"
             }
         },
-        {   "node" : "Replace NaNs",
-            "category": "Data Cleaning",
-            "info": {
-                "title": "Replace NaN values"
-            },
-            "params": [
-                {"param_label": "description", "param_type": "string", "show": true},
-                {"param_label": "value", "param_type": "string", "show": true}
-            ],
-            "inputs": [
-                { 	"port_label": "data_in", "port_type": "DataFrame" }
-            ],
-            "outputs": [
-                {	"port_label": "out", "port_type": "DataFrame" }
-            ],
-            "dependencies": {
-                "data_cleaning" : {
-                    "origin": "custom",
-                    "value": "ReplaceNaN"
-                }
-            },
-            "origin": {
-                "custom": "ReplaceNaN"
-            }
-        },
         {   "node" : "Replace Value",
             "category": "Data Cleaning",
             "info": {
                 "title": "Replace one value with another"
             },
             "params": [
-                {"param_label": "description", "param_type": "string", "show": true},
-                {"param_label": "old_value", "param_type": "string", "show": true},
-                {"param_label": "new_value", "param_type": "string", "show": true}
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "column", "param_type": "string", "show": false},
+                {"param_label": "value_map", "param_type": "map", "show": false}
             ],
             "inputs": [
                 { 	"port_label": "data_in", "port_type": "DataFrame" }
@@ -273,8 +274,9 @@
                 "title": "Replace null values"
             },
             "params": [
-                {"param_label": "description", "param_type": "string", "show": true},
-                {"param_label": "value", "param_type": "string", "show": true}
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "strategy", "param_type": "option", "optionId" : "replace_strategy", "show": false},
+                {"param_label": "column", "param_type": "string", "show": false}
             ],
             "inputs": [
                 { 	"port_label": "data_in", "port_type": "DataFrame" }
@@ -298,7 +300,7 @@
                 "title" : "Trains One Hot Categorical Encoder and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -324,7 +326,7 @@
                 "title" : "Trains a Categorical Boosting Encoder and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -350,7 +352,7 @@
                 "title" : "Trains Robust Scaler and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -376,7 +378,7 @@
                 "title" : "Trains MaxAbs Scaler and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -402,7 +404,7 @@
                 "title" : "Trains Standard Scaler and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -428,7 +430,7 @@
                 "title" : "Trains MinMax Scaler and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -454,7 +456,7 @@
                 "title" : "Trains Linear Regression"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "model_parameters", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
@@ -481,13 +483,12 @@
                 "title" : "Trains Support Vector Machine"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "model_parameters", "param_type" : "string", "show" : false}
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "kernel", "param_type" : "option", "optionId" : "SVMKernel", "show" : false}
             ],
             "inputs" : [
                 { "port_label" : "features", "port_type" : "DataFrame" },
-                { "port_label" : "truth", "port_type" : "DataFrame" },
-                { "port_label" : "optimizer", "port_type" : "Optimizer" }
+                { "port_label" : "truth", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "model", "port_type" : "Model" }
@@ -508,7 +509,7 @@
             },  
             "category" : "Model Training",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "optimizer_parameters", "param_type" : "string", "show" : false}
             ],
             "inputs" : [],
@@ -531,7 +532,7 @@
             },
             "category" : "Model Training",  
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "optimizer_parameters", "param_type" : "string", "show" : false}
             ],
             "inputs" : [],
@@ -548,14 +549,13 @@
                 "custom" : "CreateRMSOptimizer"
             }
         },
-        {   "node" : "Evaluate accuaracy",
+        {   "node" : "Evaluate accuracy",
             "info" : {
                 "title" : "Evaluates accuracy"
             },
             "category" : "Model Evaluation",
             "params" : [
-                {"param_label" : "description", "param_type" : "string", "show" : true},
-                {"param_label" : "parameters", "param_type" : "string", "show" : false}
+                {"param_label" : "description", "param_type" : "description", "show" : true}
             ],
             "inputs" : [
                 { "port_label" : "model", "port_type" : "Model" },
