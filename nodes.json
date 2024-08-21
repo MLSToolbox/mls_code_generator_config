@@ -177,11 +177,11 @@
             "dependencies" : {
 				"feature_engineering": {
 					"origin": "custom",
-					"value": "DropColumns"
+					"value": "ColumnDrop"
 				}
 			},
 			"origin" : {
-				"custom" : "DropColumns"
+				"custom" : "ColumnDrop"
 			}
         },
         {   "node" : "CSVLoader",
