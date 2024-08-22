@@ -135,9 +135,8 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "type", "param_type" : "option", "optionId" : "join_type", "show" : true},
-                {"param_label" : "index", "param_type" : "string", "show" : false},
-                {"param_label" : "dataset_tag", "param_type" : "string", "show" : false}
+                {"param_label" : "how", "param_type" : "option", "optionId" : "join_type", "show" : true},
+                {"param_label" : "index", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
                 {"port_label" : "left", "port_type" : "DataFrame" },
@@ -301,13 +300,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "encoder", "port_type" : "Encoder" }
             ],
             "dependencies" : {
@@ -327,13 +326,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "encoder", "port_type" : "Encoder" }
             ],
             "dependencies" : {
@@ -353,13 +352,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
@@ -379,13 +378,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
@@ -405,13 +404,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
@@ -431,13 +430,13 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "columns", "param_type" : "string", "show" : false}
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
             ],
             "inputs" : [
-                { "port_label" : "data_in", "port_type" : "DataFrame" }
+                { "port_label" : "data", "port_type" : "DataFrame" }
             ],
             "outputs" : [
-                { "port_label" : "data", "port_type" : "DataFrame" },
+                { "port_label" : "out", "port_type" : "DataFrame" },
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
