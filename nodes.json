@@ -351,7 +351,7 @@
                 "title" : "Uses pre-trained encoder and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true}
             ],
             "inputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
@@ -376,7 +376,7 @@
                 "title" : "Uses pre-trained scaler and transforms data"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "description", "param_type" : "description", "show" : true}
             ],
             "inputs" : [
                 { "port_label" : "data", "port_type" : "DataFrame" },
