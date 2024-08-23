@@ -121,11 +121,11 @@
             "dependencies" : {
                 "model_training": {
 					"origin": "custom",
-					"value": "SplitTrainTest"
+					"value": "TrainTestSplitter"
 				}
             },
 			"origin" : {
-				"custom" : "SplitTrainTest"
+				"custom" : "TrainTestSplitter"
 			}
         },
         {   "node" : "Join",
@@ -455,13 +455,11 @@
                 "title" : "Trains Linear Regression"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "model_parameters", "param_type" : "string", "show" : false}
+                {"param_label" : "description", "param_type" : "description", "show" : true}
             ],
             "inputs" : [
                 { "port_label" : "features", "port_type" : "DataFrame" },
-                { "port_label" : "truth", "port_type" : "DataFrame" },
-                { "port_label" : "optimizer", "port_type" : "Optimizer" }
+                { "port_label" : "truth", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "model", "port_type" : "Model" }
@@ -474,6 +472,33 @@
             },
             "origin" : {
                 "custom" : "LinearRegressorTrainer"
+            }
+        },
+        {   "node" : "Random Forest Classifier train",
+            "category" : "Model Training",
+            "info" : {
+                "title" : "Trains Random Forest Classifier"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "max_depth", "param_type" : "number", "show" : false},
+                {"param_label" : "n_estimators", "param_type" : "number", "show" : false}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "dependencies" : {
+                "model_training" : {
+                    "origin": "custom",
+                    "value": "RandomForestTreeClassifierTrainer"
+                }
+            },
+            "origin" : {
+                "custom" : "RandomForestTreeClassifierTrainer"
             }
         },
         {   "node" : "SVM train",
