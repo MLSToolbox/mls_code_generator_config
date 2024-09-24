@@ -66,11 +66,11 @@
             "dependencies" : {
 				"feature_engineering" : {
 					"origin": "custom",
-					"value": "SelectColumns"
+					"value": "ColumnSelect"
 				}
 			},
 			"origin" : {
-				"custom" : "SelectColumns"
+				"custom" : "ColumnSelect"
 			}
         },
         {   "node" : "Label Encoder train",
@@ -90,7 +90,7 @@
                 {"port_label" : "encoder", "port_type" : "Encoder" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.encoder_training" : {
                     "origin": "custom",
                     "value": "LabelEncoderTrainer"
                 }
@@ -310,7 +310,7 @@
                 { "port_label" : "encoder", "port_type" : "Encoder" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.encoder_training" : {
                     "origin": "custom",
                     "value": "OneHotEncoderTrainer"
                 }
@@ -336,7 +336,7 @@
                 { "port_label" : "encoder", "port_type" : "Encoder" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.encoder_training" : {
                     "origin": "custom",
                     "value": "CatBoostEncoderTrainer"
                 }
@@ -438,7 +438,7 @@
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.scaler_training" : {
                     "origin": "custom",
                     "value": "MaxAbsScalerTrainer"
                 }
@@ -464,7 +464,7 @@
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.scaler_training" : {
                     "origin": "custom",
                     "value": "StandardScalerTrainer"
                 }
@@ -490,7 +490,7 @@
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.scaler_training" : {
                     "origin": "custom",
                     "value": "MinMaxScalerTrainer"
                 }
