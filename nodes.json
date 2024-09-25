@@ -128,8 +128,8 @@
 				"custom" : "TrainTestSplitter"
 			}
         },
-        {   "node" : "Join",
-            "category" : "Feature Engineering",
+        {   "node" : "Join Data Frames",
+            "category" : "Data Cleaning",
             "info" : {
                 "title" : "Joins two tables"  
             },
@@ -149,13 +149,41 @@
                 }
             ],
             "dependencies" : {
-				"feature_engineering": {
+				"data_cleaning": {
 					"origin": "custom",
-					"value": "Join"
+					"value": "JoinDataFrame"
 				}
 			},
 			"origin" : {
-				"custom" : "Join"
+				"custom" : "JoinDataFrame"
+			}
+        },
+        {   "node" : "Feature Join",
+            "category" : "Feature Engineering",
+            "info" : {
+                "title" : "Joins two tables with features"  
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "left", "port_type" : "DataFrame" },
+                {"port_label" : "right", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {
+                "port_label" : "out",
+                "port_type" : "DataFrame"
+                }
+            ],
+            "dependencies" : {
+				"feature_engineering": {
+					"origin": "custom",
+					"value": "FeatureJoin"
+				}
+			},
+			"origin" : {
+				"custom" : "FeatureJoin"
 			}
         },
         {   "node" : "Drop Columns",
@@ -267,10 +295,10 @@
                 "custom": "ReplaceValue"
             }
         },
-        {   "node" : "Replace Nulls",
+        {   "node" : "Replace Nulls Average",
             "category": "Data Cleaning",
             "info": {
-                "title": "Replace null values"
+                "title": "Replace null values with the average of the column"
             },
             "params": [
                 {"param_label": "description", "param_type": "description", "show": true},
@@ -286,11 +314,61 @@
             "dependencies": {
                 "data_cleaning" : {
                     "origin": "custom",
-                    "value": "ReplaceNull"
+                    "value": "ReplaceNullAverage"
                 }
             },
             "origin": {
                 "custom": "ReplaceNull"
+            }
+        },
+        {   "node" : "Replace Nulls Zero",
+            "category": "Data Cleaning",
+            "info": {
+                "title": "Replace null values with 0s"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "column", "param_type": "string", "show": false}
+            ],
+            "inputs": [
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
+            ],
+            "outputs": [
+                {	"port_label": "out", "port_type": "DataFrame" }
+            ],
+            "dependencies": {
+                "data_cleaning" : {
+                    "origin": "custom",
+                    "value": "ReplaceNullZero"
+                }
+            },
+            "origin": {
+                "custom": "ReplaceNullZero"
+            }
+        },
+        {   "node" : "Replace Nulls Mode",
+            "category": "Data Cleaning",
+            "info": {
+                "title": "Replace null values with the mode"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "column", "param_type": "string", "show": false}
+            ],
+            "inputs": [
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
+            ],
+            "outputs": [
+                {	"port_label": "out", "port_type": "DataFrame" }
+            ],
+            "dependencies": {
+                "data_cleaning" : {
+                    "origin": "custom",
+                    "value": "ReplaceNullMode"
+                }
+            },
+            "origin": {
+                "custom": "ReplaceNullMode"
             }
         },
         {   "node" : "OHCEncoder train",
