@@ -240,6 +240,30 @@
                 "custom" : "CSVLoader"
             }
         },
+        {   "node" : "IrisDatasetLoader",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Loads Iris dataset from sklearn"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {"port_label" : "data", "port_type" : "DataFrame"},
+                {"port_label" : "target", "port_type" : "DataFrame"}
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "IrisDatasetLoader"
+                }
+            },
+            "external_dependencies" : [],
+            "origin" : {
+                "custom" : "IrisDatasetLoader"
+            }
+        },
         {   "node" : "JSONLoader",
             "category" : "Data Collection",
             "info" : {
