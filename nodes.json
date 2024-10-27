@@ -490,7 +490,7 @@
                 { "port_label" : "scaler", "port_type" : "Scaler" }
             ],
             "dependencies" : {
-                "feature_engineering" : {
+                "feature_engineering.scaler_training" : {
                     "origin": "custom",
                     "value": "RobustScalerTrainer"
                 }
