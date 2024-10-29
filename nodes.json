@@ -125,7 +125,7 @@
                 "custom" : "PrefixTransform"
             }
         },
-        {   "node" : "Sufix Transform",
+        {   "node" : "Suffix Transform",
             "info" : {
                 "title" : "Transforms the values of a given sets of columns to the final values of it"
             },
@@ -133,7 +133,7 @@
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "list", "show" : false},
-                {"param_label" : "sufix_length", "param_type" : "number", "show" : true}
+                {"param_label" : "suffix_length", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
                 {"port_label" : "old_table", "port_type" : "DataFrame" }
@@ -144,11 +144,11 @@
             "dependencies" : {
                 "feature_engineering" : {
                     "origin": "custom",
-                    "value": "SufixTransform"
+                    "value": "SuffixTransform"
                 }
             },
             "origin" : {
-                "custom" : "SufixTransform"
+                "custom" : "SuffixTransform"
             }
         },
         {   "node" : "Split Dataframe",
