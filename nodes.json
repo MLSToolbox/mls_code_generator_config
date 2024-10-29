@@ -73,15 +73,15 @@
 				"custom" : "ColumnSelect"
 			}
         },
-        {   "node" : "Pivot Table",
+        {   "node" : "Duplicate Column",
             "info" : {
                 "title" : "Creates a new column that is a copy from another one"
             },
             "category" : "Feature Engineering",
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "Original column name", "param_type" : "string", "show" : false},
-                {"param_label" : "New column name", "param_type" : "string", "show" : false}
+                {"param_label" : "original_column_name", "param_type" : "string", "show" : false},
+                {"param_label" : "new_column_name", "param_type" : "string", "show" : false}
             ],
             "inputs" : [
                 {"port_label" : "old_table", "port_type" : "DataFrame" }
@@ -92,11 +92,11 @@
             "dependencies" : {
                 "feature_engineering" : {
                     "origin": "custom",
-                    "value": "PivotTable"
+                    "value": "DuplicateColumn"
                 }
             },
             "origin" : {
-                "custom" : "PivotTable"
+                "custom" : "DuplicateColumn"
             }
         },
         {   "node" : "Prefix Transform",
@@ -107,7 +107,7 @@
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "list", "show" : false},
-                {"param_label" : "prefix length", "param_type" : "number", "show" : true}
+                {"param_label" : "prefix_length", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
                 {"port_label" : "old_table", "port_type" : "DataFrame" }
@@ -133,7 +133,7 @@
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "columns", "param_type" : "list", "show" : false},
-                {"param_label" : "sufix length", "param_type" : "number", "show" : true}
+                {"param_label" : "sufix_length", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
                 {"port_label" : "old_table", "port_type" : "DataFrame" }
