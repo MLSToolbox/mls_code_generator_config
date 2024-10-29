@@ -73,6 +73,84 @@
 				"custom" : "ColumnSelect"
 			}
         },
+        {   "node" : "Pivot Table",
+            "info" : {
+                "title" : "Creates a new column that is a copy from another one"
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "Original column name", "param_type" : "string", "show" : false},
+                {"param_label" : "New column name", "param_type" : "string", "show" : false}
+            ],
+            "inputs" : [
+                {"port_label" : "old_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "new_table", "port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "PivotTable"
+                }
+            },
+            "origin" : {
+                "custom" : "PivotTable"
+            }
+        },
+        {   "node" : "Prefix Transform",
+            "info" : {
+                "title" : "Transforms the values of a given sets of columns to the initial values of it"
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false},
+                {"param_label" : "prefix length", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "old_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "new_table", "port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "PrefixTransform"
+                }
+            },
+            "origin" : {
+                "custom" : "PrefixTransform"
+            }
+        },
+        {   "node" : "Sufix Transform",
+            "info" : {
+                "title" : "Transforms the values of a given sets of columns to the final values of it"
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false},
+                {"param_label" : "sufix length", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "old_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "new_table", "port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "SufixTransform"
+                }
+            },
+            "origin" : {
+                "custom" : "SufixTransform"
+            }
+        },
         {   "node" : "Label Encoder train",
             "info" : {
                 "title" : "Encodes labels of a given set of columns"
