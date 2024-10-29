@@ -151,6 +151,32 @@
                 "custom" : "SufixTransform"
             }
         },
+        {   "node" : "Split Dataframe",
+            "info" : {
+                "title" : "Separates the dataframe into two datasets given the columns of interest"
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "columns", "param_type" : "list", "show" : false}
+            ],
+            "inputs" : [
+                {"port_label" : "table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "selected_table", "port_type" : "DataFrame" },
+                {"port_label" : "unselected_table", "port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "SplitDataframe"
+                }
+            },
+            "origin" : {
+                "custom" : "SplitDataframe"
+            }
+        },
         {   "node" : "Label Encoder train",
             "info" : {
                 "title" : "Encodes labels of a given set of columns"
