@@ -829,6 +829,54 @@
             "origin" : {
                 "custom" : "EvaluateAccuracy"
             }
+        },
+        {   "node" : "Model predict",
+            "category": "Deployment",
+            "info": {
+                "title": "Performs prediction of a model"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true}
+            ],
+            "inputs": [
+                { 	"port_label": "model", "port_type": "Model" },
+                { 	"port_label": "features", "port_type": "DataFrame" }
+            ],
+            "outputs": [
+                {	"port_label": "prediction", "port_type": "DataFrame" }
+            ],
+            "dependencies": {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "ModelPredict"
+                }
+            },
+            "origin": {
+                "custom": "ModelPredict"
+            }
+        },
+        {   "node" : "To CSV",
+            "category": "Deployment",
+            "info": {
+                "title": "Stores a dataframe to a CSV file"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "path", "param_type": "string", "show": true}
+            ],
+            "inputs": [
+                { 	"port_label": "dataframe", "port_type": "DataFrame" }
+            ],
+            "outputs": [],
+            "dependencies": {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "ToCSV"
+                }
+            },
+            "origin": {
+                "custom": "ToCSV"
+            }
         }
     ]
 }
