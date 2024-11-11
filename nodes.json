@@ -758,6 +758,34 @@
                 "custom" : "SVMTrainer"
             }
         },
+        {   "node" : "Random Forest Regressor train",
+            "category" : "Model Training",
+            "info" : {
+                "title" : "Trains Random Forest Regressor"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "n_estimators", "param_type" : "number", "show" : false},
+                {"param_label" : "max_depth", "param_type" : "number", "show" : false},
+                {"param_label" : "min_samples_leaf", "param_type" : "number", "show" : false}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "dependencies" : {
+                "model_training" : {
+                    "origin": "custom",
+                    "value": "RandomForestRegressorTrainer"
+                }
+            },
+            "origin" : {
+                "custom" : "RandomForestRegressorTrainer"
+            }
+        },
         {   "node" : "CreateAdams Optimizer",
             "info" : {
                 "title" : "Creates Adam optimizer"
