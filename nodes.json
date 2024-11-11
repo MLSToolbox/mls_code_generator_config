@@ -406,7 +406,6 @@
             },
             "params": [
                 {"param_label": "description", "param_type": "description", "show": true},
-                {"param_label": "strategy", "param_type": "option", "optionId" : "replace_strategy", "show": false},
                 {"param_label": "column", "param_type": "string", "show": false}
             ],
             "inputs": [
