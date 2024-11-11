@@ -421,7 +421,7 @@
                 }
             },
             "origin": {
-                "custom": "ReplaceNull"
+                "custom": "ReplaceNullAverage"
             }
         },
         {   "node" : "Replace Nulls Zero",
