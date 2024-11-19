@@ -1,0 +1,12 @@
+{
+    "editors" : [
+        {
+            "name" : "Basic editor",
+            "path" : "base_editor.json"
+        },
+        {
+            "name" : "Complex editor",
+            "path" : "complex_editor.json"
+        }
+    ]
+}
