@@ -177,6 +177,31 @@
                 "custom" : "SplitDataframe"
             }
         },
+        {   "node" : "Column Concatenate",
+            "info" : {
+                "title" : "Component that concatenates two tables."
+            },
+            "category" : "Feature Engineering",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "left_table", "port_type" : "DataFrame" },
+                {"port_label" : "right_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "selected_table", "port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+                "feature_engineering" : {
+                    "origin": "custom",
+                    "value": "ColumnConcat"
+                }
+            },
+            "origin" : {
+                "custom" : "ColumnConcat"
+            }
+        },
         {   "node" : "Label Encoder train",
             "info" : {
                 "title" : "Encodes labels of a given set of columns"
@@ -322,7 +347,8 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "path", "param_type" : "string", "show" : true}
+                {"param_label" : "path", "param_type" : "string", "show" : true},
+                {"param_label" : "separator", "param_type" : "string", "show" : false}
             ],
             "inputs" : [],
             "outputs" : [
