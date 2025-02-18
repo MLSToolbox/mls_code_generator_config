@@ -22,6 +22,13 @@
                 "value": "train_v9rqX0R.csv",
                 "isParam": "custom",
                 "param_label": ""
+              },
+              "separator": {
+                "type": "string",
+                "show": true,
+                "value": ",",
+                "isParam": "custom",
+                "param_label": ""
               }
             }
           },
