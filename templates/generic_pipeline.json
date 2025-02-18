@@ -25,7 +25,7 @@
               },
               "separator": {
                 "type": "string",
-                "show": true,
+                "show": false,
                 "value": ",",
                 "isParam": "custom",
                 "param_label": ""
