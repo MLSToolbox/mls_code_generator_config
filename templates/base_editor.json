@@ -280,21 +280,12 @@
           "id": "edb21e9cd526cacc",
           "data": {
             "info": {
-              "title": "Replace null values"
+              "title": "Replace null values with 0s"
             },
             "params": {
               "description": {
                 "type": "description",
-                "show": true,
-                "isParam": "custom",
-                "param_label": ""
-              },
-              "strategy": {
-                "type": "string",
-                "show": false,
-                "value": "average",
-                "isParam": "custom",
-                "param_label": ""
+                "show": true
               },
               "column": {
                 "type": "string",
@@ -305,8 +296,8 @@
               }
             }
           },
-          "name": "Replace Nulls",
-          "nodeName": "Replace Nulls"
+          "name": "Replace Nulls Zero",
+          "nodeName": "Replace Nulls Zero"
         },
         {
           "id": "904df0dd1e15b095",
