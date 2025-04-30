@@ -43,12 +43,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "Imports data",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "data_from_csv"
               },
               "type": {
@@ -80,12 +80,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "Imports data",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "data_from_csv"
               },
               "type": {
@@ -258,12 +258,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "raw_data"
               },
               "type": {
@@ -307,12 +307,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "clean_data"
               },
               "type": {
@@ -349,12 +349,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "raw_data"
               },
               "type": {
@@ -375,12 +375,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "clean_data"
               },
               "type": {
@@ -403,12 +403,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "data"
               },
               "type": {
@@ -429,12 +429,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "features"
               },
               "type": {
@@ -455,12 +455,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "truth"
               },
               "type": {
@@ -605,12 +605,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "data"
               },
               "type": {
@@ -631,12 +631,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "features"
               },
               "type": {
@@ -655,12 +655,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "truth"
               },
               "type": {
@@ -683,12 +683,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "features"
               },
               "type": {
@@ -709,12 +709,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "truth"
               },
               "type": {
@@ -735,14 +735,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "trained_model",
-                "isParam": "custom"
+                "type": "description",
+                "value": "trained_model"
               },
               "type": {
                 "type": "option",
@@ -762,14 +761,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "features test",
-                "isParam": "custom"
+                "type": "description",
+                "value": "features test"
               },
               "type": {
                 "type": "option",
@@ -789,14 +787,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "truth test",
-                "isParam": "custom"
+                "type": "description",
+                "value": "truth test"
               },
               "type": {
                 "type": "option",
@@ -913,12 +910,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "features"
               },
               "type": {
@@ -937,12 +934,12 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
+                "type": "description",
                 "value": "truth"
               },
               "type": {
@@ -963,14 +960,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "trained_model",
-                "isParam": "custom"
+                "type": "description",
+                "value": "trained_model"
               },
               "type": {
                 "type": "option",
@@ -988,14 +984,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "features test",
-                "isParam": "custom"
+                "type": "description",
+                "value": "features test"
               },
               "type": {
                 "type": "option",
@@ -1013,14 +1008,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "truth test",
-                "isParam": "custom"
+                "type": "description",
+                "value": "truth test"
               },
               "type": {
                 "type": "option",
@@ -1042,14 +1036,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "model",
-                "isParam": "custom"
+                "type": "description",
+                "value": "model"
               },
               "type": {
                 "type": "option",
@@ -1069,14 +1062,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "features",
-                "isParam": "custom"
+                "type": "description",
+                "value": "features"
               },
               "type": {
                 "type": "option",
@@ -1096,14 +1088,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "truth",
-                "isParam": "custom"
+                "type": "description",
+                "value": "truth"
               },
               "type": {
                 "type": "option",
@@ -1163,14 +1154,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "model",
-                "isParam": "custom"
+                "type": "description",
+                "value": "model"
               },
               "type": {
                 "type": "option",
@@ -1188,14 +1178,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "features",
-                "isParam": "custom"
+                "type": "description",
+                "value": "features"
               },
               "type": {
                 "type": "option",
@@ -1213,14 +1202,13 @@
             },
             "params": {
               "description": {
-                "type": "string",
+                "type": "description",
                 "value": "",
                 "show": true
               },
               "key": {
-                "type": "string",
-                "value": "truth",
-                "isParam": "custom"
+                "type": "description",
+                "value": "truth"
               },
               "type": {
                 "type": "option",
