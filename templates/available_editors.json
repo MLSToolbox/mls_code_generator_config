@@ -6,7 +6,7 @@
     },
     {
       "name": "Pipeline without data cleaning",
-      "path": "no_datacleaning_pipeline.json"
+      "path": "no_data_cleaning_pipeline.json"
     },
     {
       "name": "Complex pipeline",
