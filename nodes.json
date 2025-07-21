@@ -812,6 +812,31 @@
                 "custom" : "RandomForestRegressorTrainer"
             }
         },
+        {   "node" : "YOLOv11 train",
+            "category" : "Model Training",
+            "info" : {
+                "title" : "Trains YoloV11 model for bounding box detection"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "data_path", "param_type" : "string", "show" : true},
+                {"param_label" : "epochs", "param_type" : "number", "show" : true},
+                {"param_label" : "imgsz", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "dependencies" : {
+                "model_training" : {
+                    "origin": "custom",
+                    "value": "YOLOv11Trainer"
+                }
+            },
+            "origin" : {
+                "custom" : "YOLOv11Trainer"
+            }
+        },
         {   "node" : "CreateAdams Optimizer",
             "info" : {
                 "title" : "Creates Adam optimizer"
