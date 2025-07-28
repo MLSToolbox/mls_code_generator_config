@@ -819,13 +819,16 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_name", "param_type" : "option", "optionId": "YOLOv11Models", "show" : false},
                 {"param_label" : "data_path", "param_type" : "string", "show" : true},
                 {"param_label" : "epochs", "param_type" : "number", "show" : true},
                 {"param_label" : "imgsz", "param_type" : "number", "show" : true}
             ],
             "inputs" : [],
             "outputs" : [
-                { "port_label" : "model", "port_type" : "Model" }
+
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "train_stats", "port_type" : "DataFrame" }
             ],
             "dependencies" : {
                 "model_training" : {
@@ -907,6 +910,30 @@
             },
             "origin" : {
                 "custom" : "EvaluateAccuracy"
+            }
+        },
+        {   "node" : "Image Prediction",
+            "info" : {
+                "title" : "Uses a model to do BB detection on an image"
+            },
+            "category" : "Model Evaluation",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "save_folder", "param_type" : "string", "show" : false}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "image_paths", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "model_evaluation" : {
+                    "origin": "custom",
+                    "value": "ImagePrediction"
+                }
+            },
+            "origin" : {
+                "custom" : "ImagePrediction"
             }
         },
         {   "node" : "Model predict",

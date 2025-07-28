@@ -48,6 +48,13 @@
         "replace_strategy" : [
             "average",
             "mode"
+        ],
+        "YOLOv11Models" : [
+            "yolo11n.pt",
+            "yolo11s.pt",
+            "yolo11m.pt",
+            "yolo11l.pt",
+            "yolo11x.pt"
         ]
     },
     "option_of_options":
