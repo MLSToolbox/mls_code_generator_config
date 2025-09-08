@@ -399,6 +399,59 @@
                 "custom" : "JSONLoader"
             }
         },
+        {   "node" : "IrisDatasetLoader",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Loads Iris dataset from sklearn"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {"port_label" : "data", "port_type" : "DataFrame"},
+                {"port_label" : "target", "port_type" : "DataFrame"}
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "IrisDatasetLoader"
+                }
+            },
+            "external_dependencies" : [],
+            "origin" : {
+                "custom" : "IrisDatasetLoader"
+            }
+        },
+        {   "node" : "ExcelLoader",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Loads Excel file from disk"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "out",
+                "port_type" : "DataFrame"
+                }
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "ExcelLoader"
+                }
+            },
+            "external_dependencies" : [
+                "./data/<param:path>"
+            ],
+            "origin" : {
+                "custom" : "ExcelLoader"
+            }
+        },
         {   "node" : "Replace Value",
             "category": "Data Cleaning",
             "info": {
