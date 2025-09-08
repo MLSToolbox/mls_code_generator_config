@@ -449,6 +449,56 @@
             "origin": {
                 "custom": "ReplaceNullAverage"
             }
+        },{   "node" : "Replace Nulls Median",
+            "category": "Data Cleaning",
+            "info": {
+                "title": "Replace null values with the average of the column"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "column", "param_type": "string", "show": false}
+            ],
+            "inputs": [
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
+            ],
+            "outputs": [
+                {	"port_label": "out", "port_type": "DataFrame" }
+            ],
+            "dependencies": {
+                "data_cleaning" : {
+                    "origin": "custom",
+                    "value": "ReplaceNullMedian"
+                }
+            },
+            "origin": {
+                "custom": "ReplaceNullMedian"
+            }
+        },
+        {   "node" : "Replace Nulls Text",
+            "category": "Data Cleaning",
+            "info": {
+                "title": "Replace null values with a given text"
+            },
+            "params": [
+                {"param_label": "description", "param_type": "description", "show": true},
+                {"param_label": "new_value", "param_type": "string", "show": true},
+                {"param_label": "column", "param_type": "string", "show": false}
+            ],
+            "inputs": [
+                { 	"port_label": "data_in", "port_type": "DataFrame" }
+            ],
+            "outputs": [
+                {	"port_label": "out", "port_type": "DataFrame" }
+            ],
+            "dependencies": {
+                "data_cleaning" : {
+                    "origin": "custom",
+                    "value": "ReplaceNullText"
+                }
+            },
+            "origin": {
+                "custom": "ReplaceNullText"
+            }
         },
         {   "node" : "Replace Nulls Zero",
             "category": "Data Cleaning",
@@ -912,11 +962,65 @@
                 "custom" : "EvaluateAccuracy"
             }
         },
+        {   "node" : "Evaluate R2",
+            "info" : {
+                "title" : "Evaluates R2 of a model"
+            },
+            "category" : "Model Evaluation",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "R2", "port_type" : "Result" }
+            ],
+            "dependencies" : {
+                "model_evaluation" : {
+                    "origin": "custom",
+                    "value": "EvaluateR2"
+                }
+            },
+            "origin" : {
+                "custom" : "EvaluateR2"
+            }
+        },
+
+        {   "node" : "Evaluate MSE",
+            "info" : {
+                "title" : "Evaluates mean stardard error of a model"
+            },
+            "category" : "Model Evaluation",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "MSE", "port_type" : "Result" },
+                { "port_label" : "RMSE", "port_type" : "Result" }
+            ],
+            "dependencies" : {
+                "model_evaluation" : {
+                    "origin": "custom",
+                    "value": "EvaluateMSE"
+                }
+            },
+            "origin" : {
+                "custom" : "EvaluateMSE"
+            }
+        },
         {   "node" : "Image Prediction",
             "info" : {
                 "title" : "Uses a model to do BB detection on an image"
             },
-            "category" : "Model Evaluation",
+            "category" : "Deployment",
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
                 {"param_label" : "save_folder", "param_type" : "string", "show" : false}
