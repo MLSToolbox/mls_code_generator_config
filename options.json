@@ -55,6 +55,12 @@
             "yolo11m.pt",
             "yolo11l.pt",
             "yolo11x.pt"
+        ],
+        "BasicOperator" : [
+            "+",
+            "-",
+            "*",
+            "/"
         ]
     },
     "option_of_options":

@@ -315,6 +315,112 @@
 				"custom" : "FeatureJoin"
 			}
         },
+        {   "node" : "Generate Subset",
+            "category" : "Feature Engineering",
+            "info" : {
+                "title" : "Divides de row into a subset"  
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "select_percentage", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "selected_table","port_type" : "DataFrame" },
+                {"port_label" : "unselected_table","port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+				"feature_engineering": {
+					"origin": "custom",
+					"value": "GenerateSubset"
+				}
+			},
+			"origin" : {
+				"custom" : "GenerateSubset"
+			}
+        },
+        {   "node" : "Map",
+            "category" : "Feature Engineering",
+            "info" : {
+                "title" : "Changes the value of each element in a column given a dictionary."  
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "target_col", "param_type" : "string", "show" : true},
+                {"param_label" : "index_col", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "origin_table", "port_type" : "DataFrame" },
+                {"port_label" : "index", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "resulting_table","port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+				"feature_engineering": {
+					"origin": "custom",
+					"value": "Map"
+				}
+			},
+			"origin" : {
+				"custom" : "Map"
+			}
+        },
+        {   "node" : "ReShape",
+            "category" : "Feature Engineering",
+            "info" : {
+                "title" : "Component that reshapes each entry of the input table's column."  
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "column", "param_type" : "str", "show" : true},
+                {"param_label" : "dimensions", "param_type" : "list", "show" : false}
+            ],
+            "inputs" : [
+                {"port_label" : "origin_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "resulting_table","port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+				"feature_engineering": {
+					"origin": "custom",
+					"value": "ReShape"
+				}
+			},
+			"origin" : {
+				"custom" : "ReShape"
+			}
+        },
+        {   "node" : "BasicOperator",
+            "category" : "Feature Engineering",
+            "info" : {
+                "title" : "Applies a basic operator to each entry of the input table's column."  
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "operator", "param_type" : "option", "optionId" : "BasicOperator", "show" : false},
+                {"param_label" : "value", "param_type" : "number", "show" : false},
+                {"param_label" : "columns", "param_type" : "list", "show" : true}
+            ],
+            "inputs" : [
+                {"port_label" : "origin_table", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                {"port_label" : "out","port_type" : "DataFrame" }
+            ],
+            "dependencies" : {
+				"feature_engineering": {
+					"origin": "custom",
+					"value": "BasicOperator"
+				}
+			},
+			"origin" : {
+				"custom" : "BasicOperator"
+			}
+        },
         {   "node" : "Drop Columns",
             "info" : {
                 "title" : "Drops given columns"
@@ -445,11 +551,36 @@
                     "value": "ExcelLoader"
                 }
             },
-            "external_dependencies" : [
-                "./data/<param:path>"
-            ],
+            "external_dependencies" : [],
             "origin" : {
                 "custom" : "ExcelLoader"
+            }
+        },
+        {   "node" : "Pickle Loader",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Loads Pickled file from disk"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "out",
+                "port_type" : "DataFrame"
+                }
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "PickleLoader"
+                }
+            },
+            "external_dependencies" : [],
+            "origin" : {
+                "custom" : "PickleLoader"
             }
         },
         {   "node" : "Replace Value",
