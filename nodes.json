@@ -1200,6 +1200,59 @@
                 "custom" : "EvaluateMSE"
             }
         },
+        {   "node" : "Classification Report",
+            "info" : {
+                "title" : "Evaluates the classification capability of the model"
+            },
+            "category" : "Model Evaluation",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "report", "port_type" : "Result" }
+            ],
+            "dependencies" : {
+                "model_evaluation" : {
+                    "origin": "custom",
+                    "value": "EvaluateClassificationReport"
+                }
+            },
+            "origin" : {
+                "custom" : "EvaluateClassificationReport"
+            }
+        },
+
+        {   "node" : "Confusion Matrix",
+            "info" : {
+                "title" : "Gets the confusion matrix of the model"
+            },
+            "category" : "Model Evaluation",
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" },
+                { "port_label" : "truth", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "confusion_matrix", "port_type" : "Result" }
+            ],
+            "dependencies" : {
+                "model_evaluation" : {
+                    "origin": "custom",
+                    "value": "EvaluateConfusionMatrix"
+                }
+            },
+            "origin" : {
+                "custom" : "EvaluateConfusionMatrix"
+            }
+        },
         {   "node" : "Image Prediction",
             "info" : {
                 "title" : "Uses a model to do BB detection on an image"
