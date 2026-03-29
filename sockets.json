@@ -47,6 +47,12 @@
         "background-color:hover" : "#D7C9AA",
         "border-color:hover" : "gray"
     },
+    "Path" : {
+        "background-color" : "#BEECC8",
+        "border-color" : "#2E8B57",
+        "background-color:hover" : "#A7E0B5",
+        "border-color:hover" : "#1F6A43"
+    },
     "Unknown" : {
         "background-color" : "black",
         "border-color" : "crimson",

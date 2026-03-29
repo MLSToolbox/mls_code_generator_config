@@ -1337,7 +1337,9 @@
             "inputs" : [
                 { "port_label" : "model", "port_type" : "Model" }
             ],
-            "outputs" : [],
+            "outputs" : [
+                { "port_label" : "saved_model_path", "port_type" : "Path" }
+            ],
             "dependencies" : {
                 "deployment" : {
                     "origin": "custom",
