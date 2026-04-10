@@ -1324,6 +1324,31 @@
             "origin": {
                 "custom": "ToCSV"
             }
+        },
+        {   "node" : "Save Joblib Model",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Saves the trained model using Joblib"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "outputs" : [
+                { "port_label" : "saved_model_path", "port_type" : "Path" }
+            ],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "JoblibSaveModel"
+                }
+            },
+            "origin" : {
+                "custom" : "JoblibSaveModel"
+            }
         }
     ]
 }

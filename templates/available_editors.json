@@ -11,6 +11,10 @@
     {
       "name": "Complex pipeline",
       "path": "complex_pipeline.json"
+    },
+    {
+      "name" : "Generic pipeline with deployment",
+      "path": "generic_pipeline_with_deployment.json"
     }
   ]
 }

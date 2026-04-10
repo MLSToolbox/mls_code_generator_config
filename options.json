@@ -35,7 +35,8 @@
             "Result",
             "Object",
             "Encoder",
-            "Scaler"
+            "Scaler",
+            "Path"
         ],
         "encoder_type" : [
             "OneHotEncoder",
