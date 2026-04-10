@@ -1325,7 +1325,7 @@
                 "custom": "ToCSV"
             }
         },
-        {   "node" : "Joblib Save Model",
+        {   "node" : "Save Joblib Model",
             "category" : "Deployment",
             "info" : {
                 "title" : "Saves the trained model using Joblib"
