@@ -1349,6 +1349,31 @@
             "origin" : {
                 "custom" : "JoblibSaveModel"
             }
+        },
+        {   "node" : "Save ONNX Model",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Saves a model in ONNX format"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "outputs" : [
+                { "port_label" : "saved_model_path", "port_type" : "Path" }
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "ONNXSaveModel"
+                }
+            },
+            "origin" : {
+                "custom" : "ONNXSaveModel"
+            }
         }
     ]
 }
