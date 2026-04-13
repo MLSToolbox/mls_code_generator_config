@@ -1253,82 +1253,10 @@
                 "custom" : "EvaluateConfusionMatrix"
             }
         },
-        {   "node" : "Image Prediction",
-            "info" : {
-                "title" : "Uses a model to do BB detection on an image"
-            },
-            "category" : "Deployment",
-            "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "save_folder", "param_type" : "string", "show" : false}
-            ],
-            "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" },
-                { "port_label" : "image_paths", "port_type" : "DataFrame" }
-            ],
-            "outputs" : [],
-            "dependencies" : {
-                "model_evaluation" : {
-                    "origin": "custom",
-                    "value": "ImagePrediction"
-                }
-            },
-            "origin" : {
-                "custom" : "ImagePrediction"
-            }
-        },
-        {   "node" : "Model predict",
-            "category": "Deployment",
-            "info": {
-                "title": "Performs prediction of a model"
-            },
-            "params": [
-                {"param_label": "description", "param_type": "description", "show": true}
-            ],
-            "inputs": [
-                { 	"port_label": "model", "port_type": "Model" },
-                { 	"port_label": "features", "port_type": "DataFrame" }
-            ],
-            "outputs": [
-                {	"port_label": "prediction", "port_type": "DataFrame" }
-            ],
-            "dependencies": {
-                "deployment" : {
-                    "origin": "custom",
-                    "value": "ModelPredict"
-                }
-            },
-            "origin": {
-                "custom": "ModelPredict"
-            }
-        },
-        {   "node" : "To CSV",
-            "category": "Deployment",
-            "info": {
-                "title": "Stores a dataframe to a CSV file"
-            },
-            "params": [
-                {"param_label": "description", "param_type": "description", "show": true},
-                {"param_label": "path", "param_type": "string", "show": true}
-            ],
-            "inputs": [
-                { 	"port_label": "dataframe", "port_type": "DataFrame" }
-            ],
-            "outputs": [],
-            "dependencies": {
-                "deployment" : {
-                    "origin": "custom",
-                    "value": "ToCSV"
-                }
-            },
-            "origin": {
-                "custom": "ToCSV"
-            }
-        },
         {   "node" : "Save Joblib Model",
             "category" : "Deployment",
             "info" : {
-                "title" : "Saves the trained model using Joblib"
+                "title" : "Saves a model in  Joblib format"
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
@@ -1351,7 +1279,7 @@
             }
         },
         {   "node" : "Save ONNX Model",
-            "category" : "Data Collection",
+            "category" : "Deployment",
             "info" : {
                 "title" : "Saves a model in ONNX format"
             },
