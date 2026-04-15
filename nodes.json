@@ -1260,7 +1260,7 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "path", "param_type" : "string", "show" : true},
+                {"param_label" : "model_name", "param_type" : "string", "show" : true},
                 {"param_label" : "version", "param_type" : "string", "show" : true}
             ],
             "inputs" : [
@@ -1286,7 +1286,7 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "path", "param_type" : "string", "show" : true},
+                {"param_label" : "model_name", "param_type" : "string", "show" : true},
                 {"param_label" : "version", "param_type" : "string", "show" : true}
             ],
             "inputs" : [

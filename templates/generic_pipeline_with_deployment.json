@@ -1289,10 +1289,17 @@
                 "isParam": "custom",
                 "param_label": ""
               },
-              "path" : {
+              "model_name" : {
                 "type": "string",
                 "show": true,
-                "value": "./artifacts/model.joblib",
+                "value": "model",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "version" : {
+                "type": "string",
+                "show": true,
+                "value": "1.0.0",
                 "isParam": "custom",
                 "param_label": ""
               }
