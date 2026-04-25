@@ -15,6 +15,10 @@
     {
       "name" : "Generic pipeline with deployment",
       "path": "generic_pipeline_with_deployment.json"
+    },
+    {
+      "name": "Deployment pipeline",
+      "path": "deployment_pipeline.json"
     }
   ]
 }

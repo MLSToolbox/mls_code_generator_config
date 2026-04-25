@@ -583,6 +583,32 @@
                 "custom" : "PickleLoader"
             }
         },
+        {   "node" : "Model Loader",
+            "category" : "Data Collection",
+            "info" : {
+                "title" : "Loads a model artifact from the executable root directory"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model",
+                "port_type" : "Model"
+                }
+            ],
+            "dependencies" : {
+                "data_collection" : {
+                    "origin": "custom",
+                    "value": "ModelLoader"
+                }
+            },
+            "origin" : {
+                "custom" : "ModelLoader"
+            }
+        },
         {   "node" : "Replace Value",
             "category": "Data Cleaning",
             "info": {
@@ -1328,6 +1354,35 @@
             },
             "origin" : {
                 "custom" : "SklearnToOnnxModel"
+            }
+        },
+        {   "node" : "Deploy with Docker",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Deploys a saved model artifact into a Docker container"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_source", "param_type" : "option", "optionId" : "model_source", "show" : true},
+                {"param_label" : "preprocessing_steps", "param_type" : "cleaning_map", "optionId" : "data_cleaning_type", "show" : false},
+                {"param_label" : "image_name", "param_type" : "string", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model_path", "port_type" : "Path" },
+                { "port_label" : "model", "port_type" : "Model" }
+            ],
+            "outputs" : [
+                { "port_label" : "deployment_info", "port_type" : "Object" }
+            ],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "DeployWithDocker"
+                }
+            },
+            "origin" : {
+                "custom" : "DeployWithDocker"
             }
         }
     ]
