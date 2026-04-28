@@ -590,13 +590,14 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true},
+                {"param_label" : "preprocessing_steps", "param_type" : "cleaning_map", "optionId" : "data_cleaning_type", "show" : true}
             ],
             "inputs" : [],
             "outputs" : [
                 {
-                "port_label" : "model",
-                "port_type" : "Model"
+                "port_label" : "model_path",
+                "port_type" : "Path"
                 }
             ],
             "dependencies" : {
@@ -1363,14 +1364,11 @@
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "model_source", "param_type" : "option", "optionId" : "model_source", "show" : true},
-                {"param_label" : "preprocessing_steps", "param_type" : "cleaning_map", "optionId" : "data_cleaning_type", "show" : false},
                 {"param_label" : "image_name", "param_type" : "string", "show" : true},
                 {"param_label" : "port", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
-                { "port_label" : "model_path", "port_type" : "Path" },
-                { "port_label" : "model", "port_type" : "Model" }
+                { "port_label" : "model_path", "port_type" : "Path" }
             ],
             "outputs" : [
                 { "port_label" : "deployment_info", "port_type" : "Object" }

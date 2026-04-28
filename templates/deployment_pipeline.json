@@ -46,9 +46,9 @@
       "connections": [
         {
           "source": "fd87e5b07c51650b",
-          "sourceOutput": "external_model",
+          "sourceOutput": "external_model_path",
           "target": "d11f9cb4f5f94071",
-          "targetInput": "model"
+          "targetInput": "model_path"
         }
       ],
       "inputs": [],
@@ -76,6 +76,14 @@
                 "value": "model.joblib",
                 "isParam": "custom",
                 "param_label": ""
+              },
+              "preprocessing_steps": {
+                "type": "cleaning_map",
+                "show": true,
+                "value": [],
+                "optionId": "data_cleaning_type",
+                "isParam": "custom",
+                "param_label": ""
               }
             }
           },
@@ -96,11 +104,11 @@
               },
               "key": {
                 "type": "description",
-                "value": "external_model"
+                "value": "external_model_path"
               },
               "type": {
                 "type": "option",
-                "value": "Model",
+                "value": "Path",
                 "optionId": "socket_type"
               }
             }
@@ -112,7 +120,7 @@
       "connections": [
         {
           "source": "8b5f4f7b2e3f4c1a",
-          "sourceOutput": "model",
+          "sourceOutput": "model_path",
           "target": "a2a39094189868ea",
           "targetInput": "value"
         }
@@ -133,11 +141,11 @@
               },
               "key": {
                 "type": "description",
-                "value": "external_model"
+                "value": "external_model_path"
               },
               "type": {
                 "type": "option",
-                "value": "Model",
+                "value": "Path",
                 "optionId": "socket_type"
               }
             }
@@ -161,11 +169,11 @@
               },
               "key": {
                 "type": "description",
-                "value": "model"
+                "value": "model_path"
               },
               "type": {
                 "type": "option",
-                "value": "Model",
+                "value": "Path",
                 "optionId": "socket_type"
               }
             }
@@ -184,14 +192,6 @@
                 "type": "description",
                 "show": true,
                 "value": "Deploy an externally provided model artifact with Docker",
-                "isParam": "custom",
-                "param_label": ""
-              },
-              "model_source": {
-                "type": "option",
-                "show": true,
-                "value": "external",
-                "optionId": "model_source",
                 "isParam": "custom",
                 "param_label": ""
               },
@@ -220,7 +220,7 @@
           "source": "42e83a94787b1972",
           "sourceOutput": "value",
           "target": "45507a85416b41e8",
-          "targetInput": "model"
+          "targetInput": "model_path"
         }
       ],
       "inputs": [
@@ -238,11 +238,11 @@
               },
               "key": {
                 "type": "description",
-                "value": "model"
+                "value": "model_path"
               },
               "type": {
                 "type": "option",
-                "value": "Model",
+                "value": "Path",
                 "optionId": "socket_type"
               }
             }

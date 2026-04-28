@@ -63,10 +63,6 @@
             "*",
             "/"
         ],
-        "model_source" : [
-            "pipeline",
-            "external"
-        ],
         "data_cleaning_type" : [
             "Join Data Frames",
             "Replace Value",

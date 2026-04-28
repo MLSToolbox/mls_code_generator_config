@@ -1322,14 +1322,6 @@
                 "isParam": "custom",
                 "param_label": ""
               },
-              "model_source": {
-                "type": "option",
-                "show": true,
-                "value": "pipeline",
-                "optionId": "model_source",
-                "isParam": "custom",
-                "param_label": ""
-              },
               "image_name": {
                 "type": "string",
                 "show": true,
