@@ -1317,7 +1317,8 @@
                 {"param_label" : "version", "param_type" : "string", "show" : true}
             ],
             "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" }
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "saved_model_path", "port_type" : "Path" }
@@ -1330,31 +1331,6 @@
             },
             "origin" : {
                 "custom" : "OnnxSaveModel"
-            }
-        },
-        {   "node" : "Sklearn to ONNX",
-            "category" : "Deployment",
-            "info" : {
-                "title" : "Converts a trained sklearn model to ONNX ModelProto"
-            },
-            "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true}
-            ],
-            "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" },
-                { "port_label" : "features", "port_type" : "DataFrame" }
-            ],
-            "outputs" : [
-                { "port_label" : "model", "port_type" : "Model" }
-            ],
-            "dependencies" : {
-                "deployment" : {
-                    "origin": "custom",
-                    "value": "SklearnToOnnxModel"
-                }
-            },
-            "origin" : {
-                "custom" : "SklearnToOnnxModel"
             }
         },
         {   "node" : "Deploy with Docker",
