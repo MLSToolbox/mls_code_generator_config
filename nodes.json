@@ -1356,6 +1356,29 @@
             "origin" : {
                 "custom" : "DeployWithDocker"
             }
+        },
+        {   "node" : "Deploy Local",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Deploys a saved model artifact locally and creates an API endpoint"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model_path", "port_type" : "Path" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "DeployLocal"
+                }
+            },
+            "origin" : {
+                "custom" : "DeployLocal"
+            }
         }
     ]
 }
