@@ -11,7 +11,7 @@
             "params": {
               "Stage name": {
                 "type": "description",
-                "value": "Data Collection"
+                "value": "Model Importer"
               },
               "color": {
                 "type": "color",
@@ -87,8 +87,8 @@
               }
             }
           },
-          "name": "Model Loader",
-          "nodeName": "Model Loader"
+          "name": "Model Importer",
+          "nodeName": "Model Importer"
         },
         {
           "id": "a2a39094189868ea",

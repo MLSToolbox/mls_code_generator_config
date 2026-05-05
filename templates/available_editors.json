@@ -1,7 +1,7 @@
 {
   "editors": [
     {
-      "name": "Generic pipeline (all stages)",
+      "name": "Generic pipeline",
       "path": "generic_pipeline.json"
     },
     {
@@ -17,8 +17,8 @@
       "path": "generic_pipeline_with_deployment.json"
     },
     {
-      "name": "Deployment pipeline",
-      "path": "deployment_pipeline.json"
+      "name": "External model deployment pipeline",
+      "path": "external_model_deployment_pipeline.json"
     }
   ]
 }

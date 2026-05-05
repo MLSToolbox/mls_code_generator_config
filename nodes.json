@@ -583,33 +583,6 @@
                 "custom" : "PickleLoader"
             }
         },
-        {   "node" : "Model Loader",
-            "category" : "Data Collection",
-            "info" : {
-                "title" : "Loads a model artifact from the executable root directory"
-            },
-            "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "model_filename", "param_type" : "string", "show" : true},
-                {"param_label" : "preprocessing_steps", "param_type" : "cleaning_map", "optionId" : "data_cleaning_type", "show" : true}
-            ],
-            "inputs" : [],
-            "outputs" : [
-                {
-                "port_label" : "model_path",
-                "port_type" : "Path"
-                }
-            ],
-            "dependencies" : {
-                "data_collection" : {
-                    "origin": "custom",
-                    "value": "ModelLoader"
-                }
-            },
-            "origin" : {
-                "custom" : "ModelLoader"
-            }
-        },
         {   "node" : "Replace Value",
             "category": "Data Cleaning",
             "info": {
@@ -1278,6 +1251,32 @@
             },
             "origin" : {
                 "custom" : "EvaluateConfusionMatrix"
+            }
+        },
+        {   "node" : "Model Importer",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Loads a model artifact from the executable root directory"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true} 
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
+            ],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "ModelImporter"
+                }
+            },
+            "origin" : {
+                "custom" : "ModelImporter"
             }
         },
         {   "node" : "Save Joblib Model",
