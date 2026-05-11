@@ -11,7 +11,7 @@
             "params": {
               "Stage name": {
                 "type": "description",
-                "value": "Model Importer"
+                "value": "Model Loading"
               },
               "color": {
                 "type": "color",
@@ -60,7 +60,7 @@
           "id": "8b5f4f7b2e3f4c1a",
           "data": {
             "info": {
-              "title": "Loads a model artifact from the executable root directory"
+              "title": "Loads a Joblib model artifact from the executable root directory"
             },
             "params": {
               "description": {
@@ -87,8 +87,8 @@
               }
             }
           },
-          "name": "Model Importer",
-          "nodeName": "Model Importer"
+          "name": "Joblib Model Loader",
+          "nodeName": "Joblib Model Loader"
         },
         {
           "id": "a2a39094189868ea",

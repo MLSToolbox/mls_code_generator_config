@@ -1253,14 +1253,14 @@
                 "custom" : "EvaluateConfusionMatrix"
             }
         },
-        {   "node" : "Model Importer",
-            "category" : "Deployment",
+        {   "node" : "Joblib Model Loader",
+            "category" : "Model Loading",
             "info" : {
-                "title" : "Loads a model artifact from the executable root directory"
+                "title" : "Loads a Joblib model artifact from the executable root directory"
             },
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "model_filename", "param_type" : "string", "show" : true} 
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
             ],
             "inputs" : [],
             "outputs" : [
@@ -1270,13 +1270,39 @@
                 }
             ],
             "dependencies" : {
-                "deployment" : {
+                "model_loading" : {
                     "origin": "custom",
-                    "value": "ModelImporter"
+                    "value": "JoblibModelLoader"
                 }
             },
             "origin" : {
-                "custom" : "ModelImporter"
+                "custom" : "JoblibModelLoader"
+            }
+        },
+        {   "node" : "ONNX Model Loader",
+            "category" : "Model Loading",
+            "info" : {
+                "title" : "Loads an ONNX model artifact from the executable root directory"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
+            ],
+            "dependencies" : {
+                "model_loading" : {
+                    "origin": "custom",
+                    "value": "OnnxModelLoader"
+                }
+            },
+            "origin" : {
+                "custom" : "OnnxModelLoader"
             }
         },
         {   "node" : "Save Joblib Model",
