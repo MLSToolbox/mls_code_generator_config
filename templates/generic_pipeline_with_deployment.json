@@ -1307,6 +1307,46 @@
           },
           "name": "Save Joblib Model",
           "nodeName": "Save Joblib Model"
+        },
+        {
+          "id": "e41b7b8f8f7f5d01",
+          "data": {
+            "info": {
+              "title": "Deploy with Docker"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "show": true,
+                "value": "Deploy the saved model in a Docker container",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "image_name": {
+                "type": "string",
+                "show": true,
+                "value": "model-serving",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "container_name": {
+                "type": "string",
+                "show": true,
+                "value": "model-serving",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "port": {
+                "type": "number",
+                "show": true,
+                "value": 8000,
+                "isParam": "custom",
+                "param_label": ""
+              }
+            }
+          },
+          "name": "Deploy with Docker",
+          "nodeName": "Deploy with Docker"
         }
       ],
       "connections": [
@@ -1315,6 +1355,12 @@
           "sourceOutput": "value",
           "target": "eec80eae5a0bc311",
           "targetInput": "model"
+        },
+        {
+          "source": "eec80eae5a0bc311",
+          "sourceOutput": "saved_model_path",
+          "target": "e41b7b8f8f7f5d01",
+          "targetInput": "model_path"
         }
       ],
       "inputs": [

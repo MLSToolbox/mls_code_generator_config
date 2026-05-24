@@ -62,6 +62,15 @@
             "-",
             "*",
             "/"
+        ],
+        "data_cleaning_type" : [
+            "Join Data Frames",
+            "Replace Value",
+            "Replace Nulls Average",
+            "Replace Nulls Median",
+            "Replace Nulls Text",
+            "Replace Nulls Zero",
+            "Replace Nulls Mode"
         ]
     },
     "option_of_options":

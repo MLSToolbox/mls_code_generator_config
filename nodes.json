@@ -1253,6 +1253,58 @@
                 "custom" : "EvaluateConfusionMatrix"
             }
         },
+        {   "node" : "Joblib Model Loader",
+            "category" : "Model Loading",
+            "info" : {
+                "title" : "Loads a Joblib model artifact from the executable root directory"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
+            ],
+            "dependencies" : {
+                "model_loading" : {
+                    "origin": "custom",
+                    "value": "JoblibModelLoader"
+                }
+            },
+            "origin" : {
+                "custom" : "JoblibModelLoader"
+            }
+        },
+        {   "node" : "ONNX Model Loader",
+            "category" : "Model Loading",
+            "info" : {
+                "title" : "Loads an ONNX model artifact from the executable root directory"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
+            ],
+            "dependencies" : {
+                "model_loading" : {
+                    "origin": "custom",
+                    "value": "OnnxModelLoader"
+                }
+            },
+            "origin" : {
+                "custom" : "OnnxModelLoader"
+            }
+        },
         {   "node" : "Save Joblib Model",
             "category" : "Deployment",
             "info" : {
@@ -1290,7 +1342,8 @@
                 {"param_label" : "version", "param_type" : "string", "show" : true}
             ],
             "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" }
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" }
             ],
             "outputs" : [
                 { "port_label" : "saved_model_path", "port_type" : "Path" }
@@ -1305,29 +1358,51 @@
                 "custom" : "OnnxSaveModel"
             }
         },
-        {   "node" : "Sklearn to ONNX",
+        {   "node" : "Deploy with Docker",
             "category" : "Deployment",
             "info" : {
-                "title" : "Converts a trained sklearn model to ONNX ModelProto"
+                "title" : "Deploys a saved model artifact into a Docker container"
             },
             "params" : [
-                {"param_label" : "description", "param_type" : "description", "show" : true}
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "image_name", "param_type" : "string", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
             ],
             "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" },
-                { "port_label" : "features", "port_type" : "DataFrame" }
+                { "port_label" : "model_path", "port_type" : "Path" }
             ],
-            "outputs" : [
-                { "port_label" : "model", "port_type" : "Model" }
-            ],
+            "outputs" : [],
             "dependencies" : {
                 "deployment" : {
                     "origin": "custom",
-                    "value": "SklearnToOnnxModel"
+                    "value": "DeployWithDocker"
                 }
             },
             "origin" : {
-                "custom" : "SklearnToOnnxModel"
+                "custom" : "DeployWithDocker"
+            }
+        },
+        {   "node" : "Deploy Local",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Deploys a saved model artifact locally and creates an API endpoint"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model_path", "port_type" : "Path" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "DeployLocal"
+                }
+            },
+            "origin" : {
+                "custom" : "DeployLocal"
             }
         }
     ]
