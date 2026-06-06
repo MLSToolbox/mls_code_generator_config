@@ -1404,6 +1404,57 @@
             "origin" : {
                 "custom" : "DeployLocal"
             }
+        },
+        {   "node" : "API Serving",
+            "category" : "Serving",
+            "info" : {
+                "title" : "Calls an external model API for real-time prediction"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "endpoint_url", "param_type" : "string", "show" : true},
+                {"param_label" : "output_path", "param_type" : "string", "show" : true},
+                {"param_label" : "features_scaler_path", "param_type" : "string", "show" : true},
+                {"param_label" : "truth_scaler_path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "serving" : {
+                    "origin": "custom",
+                    "value": "ApiServing"
+                }
+            },
+            "origin" : {
+                "custom" : "ApiServing"
+            }
+        },
+        {   "node" : "Batch Serving",
+            "category" : "Serving",
+            "info" : {
+                "title" : "Submits batch prediction job to an external model API"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "endpoint_url", "param_type" : "string", "show" : true},
+                {"param_label" : "features_scaler_path", "param_type" : "string", "show" : true},
+                {"param_label" : "truth_scaler_path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "serving" : {
+                    "origin": "custom",
+                    "value": "BatchServing"
+                }
+            },
+            "origin" : {
+                "custom" : "BatchServing"
+            }
         }
     ]
 }
