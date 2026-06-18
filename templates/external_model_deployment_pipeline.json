@@ -1,0 +1,255 @@
+{
+  "modules": {
+    "root": {
+      "nodes": [
+        {
+          "id": "fd87e5b07c51650b",
+          "data": {
+            "info": {
+              "title": "Contains Step"
+            },
+            "params": {
+              "Stage name": {
+                "type": "description",
+                "value": "Model Loading"
+              },
+              "color": {
+                "type": "color",
+                "value": "rgba(54, 162, 235, 0.75)"
+              }
+            }
+          },
+          "name": "Step",
+          "nodeName": "Step"
+        },
+        {
+          "id": "d11f9cb4f5f94071",
+          "data": {
+            "info": {
+              "title": "Contains Step"
+            },
+            "params": {
+              "Stage name": {
+                "type": "description",
+                "value": "Deployment"
+              },
+              "color": {
+                "type": "color",
+                "value": "rgba(46, 204, 113, 0.75)"
+              }
+            }
+          },
+          "name": "Step",
+          "nodeName": "Step"
+        }
+      ],
+      "connections": [
+        {
+          "source": "fd87e5b07c51650b",
+          "sourceOutput": "external_model_path",
+          "target": "d11f9cb4f5f94071",
+          "targetInput": "model_path"
+        }
+      ],
+      "inputs": [],
+      "outputs": []
+    },
+    "fd87e5b07c51650b": {
+      "nodes": [
+        {
+          "id": "8b5f4f7b2e3f4c1a",
+          "data": {
+            "info": {
+              "title": "Loads a Joblib model artifact from the executable root directory"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "show": true,
+                "value": "Load external model artifact",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "model_filename": {
+                "type": "string",
+                "show": true,
+                "value": "model.joblib",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "preprocessing_steps": {
+                "type": "cleaning_map",
+                "show": true,
+                "value": [],
+                "optionId": "data_cleaning_type",
+                "isParam": "custom",
+                "param_label": ""
+              }
+            }
+          },
+          "name": "Joblib Model Loader",
+          "nodeName": "Joblib Model Loader"
+        },
+        {
+          "id": "a2a39094189868ea",
+          "data": {
+            "info": {
+              "title": "Output of module"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "value": "Expose external model",
+                "show": true
+              },
+              "key": {
+                "type": "description",
+                "value": "external_model_path"
+              },
+              "type": {
+                "type": "option",
+                "value": "Path",
+                "optionId": "socket_type"
+              }
+            }
+          },
+          "name": "Output",
+          "nodeName": "Output"
+        }
+      ],
+      "connections": [
+        {
+          "source": "8b5f4f7b2e3f4c1a",
+          "sourceOutput": "model_path",
+          "target": "a2a39094189868ea",
+          "targetInput": "value"
+        }
+      ],
+      "inputs": [],
+      "outputs": [
+        {
+          "id": "a2a39094189868ea",
+          "data": {
+            "info": {
+              "title": "Output of module"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "value": "Expose external model",
+                "show": true
+              },
+              "key": {
+                "type": "description",
+                "value": "external_model_path"
+              },
+              "type": {
+                "type": "option",
+                "value": "Path",
+                "optionId": "socket_type"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "d11f9cb4f5f94071": {
+      "nodes": [
+        {
+          "id": "42e83a94787b1972",
+          "data": {
+            "info": {
+              "title": "Input of module"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "value": "",
+                "show": true
+              },
+              "key": {
+                "type": "description",
+                "value": "model_path"
+              },
+              "type": {
+                "type": "option",
+                "value": "Path",
+                "optionId": "socket_type"
+              }
+            }
+          },
+          "name": "Input",
+          "nodeName": "Input"
+        },
+        {
+          "id": "45507a85416b41e8",
+          "data": {
+            "info": {
+              "title": "Deploy with Docker"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "show": true,
+                "value": "Deploy an externally provided model artifact with Docker",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "image_name": {
+                "type": "string",
+                "show": true,
+                "value": "external-model-serving",
+                "isParam": "custom",
+                "param_label": ""
+              },
+              "port": {
+                "type": "number",
+                "show": true,
+                "value": 8000,
+                "isParam": "custom",
+                "param_label": ""
+              }
+            }
+          },
+          "name": "Deploy with Docker",
+          "nodeName": "Deploy with Docker"
+        }
+      ],
+      "connections": [
+        {
+          "source": "42e83a94787b1972",
+          "sourceOutput": "value",
+          "target": "45507a85416b41e8",
+          "targetInput": "model_path"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "42e83a94787b1972",
+          "data": {
+            "info": {
+              "title": "Input of module"
+            },
+            "params": {
+              "description": {
+                "type": "description",
+                "value": "",
+                "show": true
+              },
+              "key": {
+                "type": "description",
+                "value": "model_path"
+              },
+              "type": {
+                "type": "option",
+                "value": "Path",
+                "optionId": "socket_type"
+              }
+            }
+          }
+        }
+      ],
+      "outputs": []
+    }
+  }
+}

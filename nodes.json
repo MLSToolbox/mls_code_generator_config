@@ -1253,76 +1253,207 @@
                 "custom" : "EvaluateConfusionMatrix"
             }
         },
-        {   "node" : "Image Prediction",
+        {   "node" : "Joblib Model Loader",
+            "category" : "Model Loading",
             "info" : {
-                "title" : "Uses a model to do BB detection on an image"
+                "title" : "Loads a Joblib model artifact from the executable root directory"
             },
-            "category" : "Deployment",
             "params" : [
                 {"param_label" : "description", "param_type" : "description", "show" : true},
-                {"param_label" : "save_folder", "param_type" : "string", "show" : false}
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
             ],
-            "inputs" : [
-                { "port_label" : "model", "port_type" : "Model" },
-                { "port_label" : "image_paths", "port_type" : "DataFrame" }
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
             ],
-            "outputs" : [],
             "dependencies" : {
-                "model_evaluation" : {
+                "model_loading" : {
                     "origin": "custom",
-                    "value": "ImagePrediction"
+                    "value": "JoblibModelLoader"
                 }
             },
             "origin" : {
-                "custom" : "ImagePrediction"
+                "custom" : "JoblibModelLoader"
             }
         },
-        {   "node" : "Model predict",
-            "category": "Deployment",
-            "info": {
-                "title": "Performs prediction of a model"
+        {   "node" : "ONNX Model Loader",
+            "category" : "Model Loading",
+            "info" : {
+                "title" : "Loads an ONNX model artifact from the executable root directory"
             },
-            "params": [
-                {"param_label": "description", "param_type": "description", "show": true}
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_filename", "param_type" : "string", "show" : true}
             ],
-            "inputs": [
-                { 	"port_label": "model", "port_type": "Model" },
-                { 	"port_label": "features", "port_type": "DataFrame" }
+            "inputs" : [],
+            "outputs" : [
+                {
+                "port_label" : "model_path",
+                "port_type" : "Path"
+                }
             ],
-            "outputs": [
-                {	"port_label": "prediction", "port_type": "DataFrame" }
-            ],
-            "dependencies": {
-                "deployment" : {
+            "dependencies" : {
+                "model_loading" : {
                     "origin": "custom",
-                    "value": "ModelPredict"
+                    "value": "OnnxModelLoader"
                 }
             },
-            "origin": {
-                "custom": "ModelPredict"
+            "origin" : {
+                "custom" : "OnnxModelLoader"
             }
         },
-        {   "node" : "To CSV",
-            "category": "Deployment",
-            "info": {
-                "title": "Stores a dataframe to a CSV file"
+        {   "node" : "Save Joblib Model",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Saves a model in  Joblib format"
             },
-            "params": [
-                {"param_label": "description", "param_type": "description", "show": true},
-                {"param_label": "path", "param_type": "string", "show": true}
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_name", "param_type" : "string", "show" : true},
+                {"param_label" : "version", "param_type" : "string", "show" : true}
             ],
-            "inputs": [
-                { 	"port_label": "dataframe", "port_type": "DataFrame" }
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" }
             ],
-            "outputs": [],
-            "dependencies": {
+            "outputs" : [
+                { "port_label" : "saved_model_path", "port_type" : "Path" }
+            ],
+            "dependencies" : {
                 "deployment" : {
                     "origin": "custom",
-                    "value": "ToCSV"
+                    "value": "JoblibSaveModel"
                 }
             },
-            "origin": {
-                "custom": "ToCSV"
+            "origin" : {
+                "custom" : "JoblibSaveModel"
+            }
+        },
+        {   "node" : "Save ONNX Model",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Saves a model in ONNX format"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "model_name", "param_type" : "string", "show" : true},
+                {"param_label" : "version", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model", "port_type" : "Model" },
+                { "port_label" : "features", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [
+                { "port_label" : "saved_model_path", "port_type" : "Path" }
+            ],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "OnnxSaveModel"
+                }
+            },
+            "origin" : {
+                "custom" : "OnnxSaveModel"
+            }
+        },
+        {   "node" : "Deploy with Docker",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Deploys a saved model artifact into a Docker container"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "image_name", "param_type" : "string", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model_path", "port_type" : "Path" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "DeployWithDocker"
+                }
+            },
+            "origin" : {
+                "custom" : "DeployWithDocker"
+            }
+        },
+        {   "node" : "Deploy Local",
+            "category" : "Deployment",
+            "info" : {
+                "title" : "Deploys a saved model artifact locally and creates an API endpoint"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "port", "param_type" : "number", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "model_path", "port_type" : "Path" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "deployment" : {
+                    "origin": "custom",
+                    "value": "DeployLocal"
+                }
+            },
+            "origin" : {
+                "custom" : "DeployLocal"
+            }
+        },
+        {   "node" : "API Serving",
+            "category" : "Serving",
+            "info" : {
+                "title" : "Calls an external model API for real-time prediction"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "endpoint_url", "param_type" : "string", "show" : true},
+                {"param_label" : "output_path", "param_type" : "string", "show" : true},
+                {"param_label" : "features_scaler_path", "param_type" : "string", "show" : true},
+                {"param_label" : "truth_scaler_path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "serving" : {
+                    "origin": "custom",
+                    "value": "ApiServing"
+                }
+            },
+            "origin" : {
+                "custom" : "ApiServing"
+            }
+        },
+        {   "node" : "Batch Serving",
+            "category" : "Serving",
+            "info" : {
+                "title" : "Submits batch prediction job to an external model API"
+            },
+            "params" : [
+                {"param_label" : "description", "param_type" : "description", "show" : true},
+                {"param_label" : "endpoint_url", "param_type" : "string", "show" : true},
+                {"param_label" : "features_scaler_path", "param_type" : "string", "show" : true},
+                {"param_label" : "truth_scaler_path", "param_type" : "string", "show" : true}
+            ],
+            "inputs" : [
+                { "port_label" : "features", "port_type" : "DataFrame" }
+            ],
+            "outputs" : [],
+            "dependencies" : {
+                "serving" : {
+                    "origin": "custom",
+                    "value": "BatchServing"
+                }
+            },
+            "origin" : {
+                "custom" : "BatchServing"
             }
         }
     ]
